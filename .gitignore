@@ -20,3 +20,5 @@ target
 pom.xml.versionsBackup
 *~
 .*.swp
+.idea
+*.iml
