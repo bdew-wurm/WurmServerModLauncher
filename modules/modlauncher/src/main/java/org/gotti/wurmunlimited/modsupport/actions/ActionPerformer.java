@@ -22,12 +22,12 @@ import com.wurmonline.server.structures.Wall;
  */
 public interface ActionPerformer extends ActionPerformerBase {
 
-	public default boolean action(Action action, Creature performer, Item source, int tilex, int tiley, boolean onSurface, boolean corner, int tile, short num, float counter) {
+	public default boolean action(Action action, Creature performer, Item source, int tilex, int tiley, boolean onSurface, boolean corner, int tile, int heightOffset, short num, float counter) {
 		setServerPropagation(action, true);
 		return true;
 	}
 
-	public default boolean action(Action action, Creature performer, int tilex, int tiley, boolean onSurface, boolean corner, int tile, short num, float counter) {
+	public default boolean action(Action action, Creature performer, int tilex, int tiley, boolean onSurface, boolean corner, int tile, int heightOffset, short num, float counter) {
 		setServerPropagation(action, true);
 		return true;
 	}

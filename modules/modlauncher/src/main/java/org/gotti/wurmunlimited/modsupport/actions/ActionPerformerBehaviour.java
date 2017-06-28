@@ -20,12 +20,12 @@ public class ActionPerformerBehaviour extends Behaviour implements ActionPerform
 		this.actionPerformer = actionPerformer;
 	}
 
-	public boolean action(Action action, Creature performer, Item source, int tilex, int tiley, boolean onSurface, boolean corner, int tile, short num, float counter) {
-		return actionPerformer.action(action, performer, source, tilex, tiley, onSurface, corner, tile, num, counter);
+	public boolean action(Action action, Creature performer, Item source, int tilex, int tiley, boolean onSurface, boolean corner, int tile, int heightOffset, short num, float counter) {
+		return actionPerformer.action(action, performer, source, tilex, tiley, onSurface, corner, tile, heightOffset, num, counter);
 	}
 
-	public boolean action(Action action, Creature performer, int tilex, int tiley, boolean onSurface, boolean corner, int tile, short num, float counter) {
-		return actionPerformer.action(action, performer, tilex, tiley, onSurface, corner, tile, num, counter);
+	public boolean action(Action action, Creature performer, int tilex, int tiley, boolean onSurface, boolean corner, int tile, int heightOffset, short num, float counter) {
+		return actionPerformer.action(action, performer, tilex, tiley, onSurface, corner, tile, heightOffset, num, counter);
 	}
 
 	public boolean action(Action action, Creature performer, int tilex, int tiley, boolean onSurface, int tile, short num, float counter) {

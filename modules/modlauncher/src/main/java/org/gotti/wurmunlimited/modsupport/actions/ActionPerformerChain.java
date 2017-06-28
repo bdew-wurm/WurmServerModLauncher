@@ -37,12 +37,12 @@ class ActionPerformerChain implements ActionPerformer {
 		actionPerformers.add(actionPerformer);
 	}
 	
-	public boolean action(Action action, Creature performer, Item source, int tilex, int tiley, boolean onSurface, boolean corner, int tile, short num, float counter) {
-		return wrap(action).action(action, performer, source, tilex, tiley, onSurface, corner, tile, num, counter);
+	public boolean action(Action action, Creature performer, Item source, int tilex, int tiley, boolean onSurface, boolean corner, int tile, int heightOffset, short num, float counter) {
+		return wrap(action).action(action, performer, source, tilex, tiley, onSurface, corner, tile, heightOffset, num, counter);
 	}
 
-	public boolean action(Action action, Creature performer, int tilex, int tiley, boolean onSurface, boolean corner, int tile, short num, float counter) {
-		return wrap(action).action(action, performer, tilex, tiley, onSurface, corner, tile, num, counter);
+	public boolean action(Action action, Creature performer, int tilex, int tiley, boolean onSurface, boolean corner, int tile, int heightOffset, short num, float counter) {
+		return wrap(action).action(action, performer, tilex, tiley, onSurface, corner, tile, heightOffset, num, counter);
 	}
 
 	public boolean action(Action action, Creature performer, int tilex, int tiley, boolean onSurface, int tile, short num, float counter) {
@@ -136,7 +136,7 @@ class ActionPerformerChain implements ActionPerformer {
 	public boolean action(Action action, Creature performer, Item item, boolean onSurface, BridgePart bridgePart, int encodedTile, short num, float counter) {
 		return wrap(action).action(action, performer, item, onSurface, bridgePart, encodedTile, num, counter);
 	}
-	
+
 	private WrappedBehaviour wrap(Action action) {
 		return new WrappedBehaviour(action.getBehaviour(), actionPerformers);
 	}
