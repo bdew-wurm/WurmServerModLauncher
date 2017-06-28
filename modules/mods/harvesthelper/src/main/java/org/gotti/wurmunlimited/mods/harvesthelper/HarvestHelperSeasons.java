@@ -3,102 +3,37 @@ package org.gotti.wurmunlimited.mods.harvesthelper;
 import java.util.Locale;
 
 import com.wurmonline.server.WurmCalendar;
+import com.wurmonline.server.WurmHarvestables;
 
 public enum HarvestHelperSeasons {
 
-	OLIVE {
-		public long getStartGrowth() {
-			return WurmCalendar.getStartOliveGrowth();
-		}
-	},
-	GRAPE {
-		public long getStartGrowth() {
-			return WurmCalendar.getStartGrapeGrowth();
-		}
-	},
-	CHERRY {
-		public long getStartGrowth() {
-			return WurmCalendar.getStartCherryGrowth();
-		}
-	},
-	APPLE {
-		public long getStartGrowth() {
-			return WurmCalendar.getStartAppleGrowth();
-		}
-	},
-	LEMON {
-		public long getStartGrowth() {
-			return WurmCalendar.getStartLemonGrowth();
-		}
-	},
-	OLEANDER {
-		public long getStartGrowth() {
-			return WurmCalendar.getStartOleanderGrowth();
-		}
-	},
-	CAMELLIA {
-		public long getStartGrowth() {
-			return WurmCalendar.getStartCamelliaGrowth();
-		}
-	},
-	LAVENDER {
-		public long getStartGrowth() {
-			return WurmCalendar.getStartLavenderGrowth();
-		}
-	},
-	MAPLE {
-		public long getStartGrowth() {
-			return WurmCalendar.getStartMapleGrowth();
-		}
-	},
-	ROSE {
-		public long getStartGrowth() {
-			return WurmCalendar.getStartRoseGrowth();
-		}
-	},
-	CHESTNUT {
-		public long getStartGrowth() {
-			return WurmCalendar.getStartChestnutGrowth();
-		}
-	},
-	WALNUT {
-		public long getStartGrowth() {
-			return WurmCalendar.getStartWalnutGrowth();
-		}
-	},
-	PINE {
-		@Override
-		public long getStartGrowth() {
-			return WurmCalendar.getStartPineGrowth();
-		}
-	},
-	HAZEL {
-		@Override
-		public long getStartGrowth() {
-			return WurmCalendar.getStartHazelGrowth();
-		}
-	},
-	HOPS {
-		@Override
-		public long getStartGrowth() {
-			return WurmCalendar.getStartHopsGrowth();
-		}
-	},
-	OAK {
-		@Override
-		public long getStartGrowth() {
-			return WurmCalendar.getStartOakGrowth();
-		}
-	},
-	ORANGE {
-		@Override
-		public long getStartGrowth() {
-			return WurmCalendar.getStartOrangeGrowth();
-		}
-	},
-	;
+	OLIVE(WurmHarvestables.OLIVE_ID),
+	GRAPE(WurmHarvestables.GRAPE_ID),
+	CHERRY(WurmHarvestables.CHERRY_ID),
+	APPLE(WurmHarvestables.APPLE_ID),
+	LEMON(WurmHarvestables.LEMON_ID),
+	OLEANDER(WurmHarvestables.OLEANDER_ID),
+	CAMELLIA(WurmHarvestables.CAMELLIA_ID),
+	LAVENDER(WurmHarvestables.LAVENDER_ID),
+	MAPLE(WurmHarvestables.MAPLE_ID),
+	ROSE(WurmHarvestables.ROSE_ID),
+	CHESTNUT(WurmHarvestables.CHESTNUT_ID),
+	WALNUT(WurmHarvestables.WALNUT_ID),
+	PINE(WurmHarvestables.PINE_ID),
+	HAZEL(WurmHarvestables.HAZEL_ID),
+	HOPS(WurmHarvestables.HOPS_ID),
+	OAK(WurmHarvestables.OAK_ID),
+	ORANGE(WurmHarvestables.ORANGE_ID);
 
-	public abstract long getStartGrowth();
+	HarvestHelperSeasons(int id) {
+		this.id = id;
+	}
+
+	private int id;
+
+	public long getStartGrowth() {
+		return WurmHarvestables.getHarvestable(id).getSeasonStart();
+	}
 
 	public String getName() {
 		return this.name().toLowerCase(Locale.ROOT);
